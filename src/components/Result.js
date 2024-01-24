@@ -11,7 +11,7 @@ export default function Result() {
   return (
     <div>
       <h1>Final Score</h1>
-      <h2>{score} / 5</h2>
+      <h2>{score} out of 5</h2>
       <h2>({((score / 5) * 100).toFixed(2)}%)</h2>
       <button onClick={restart} className='restart'>
         Restart
