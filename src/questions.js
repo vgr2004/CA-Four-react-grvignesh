@@ -1,6 +1,6 @@
 const questions = [
   {
-    text: "1) What is ReactJS?",
+    text: " What is ReactJS?",
     options: [
       { id: 0, text: "Server-side framework", isCorrect: false },
       { id: 1, text: "user interface framework", isCorrect: true },
@@ -10,7 +10,7 @@ const questions = [
   },
 
   {
-    text: "2) React.js is written in which of the following language?",
+    text: " React.js is written in which of the following language?",
     options: [
       { id: 0, text: "JavaScript", isCorrect: true },
       { id: 1, text: "Java", isCorrect:  false },
@@ -19,7 +19,7 @@ const questions = [
     ],
   },
   {
-    text: "3) What is a state in React?",
+    text: " What is a state in React?",
     options: [
       { id: 0, text: "A permanent storage.", isCorrect: false },
       { id: 1, text: "Internal storage of the component.", isCorrect: true },
@@ -29,7 +29,7 @@ const questions = [
   },
   
   {
-    text: "4) What is the return value of the useState hook?",
+    text: " What is the return value of the useState hook?",
     options: [
       { id: 0, text: " Pair of current state and function updating it", isCorrect: true },
       { id: 1, text: "Current State", isCorrect:  false },
@@ -38,7 +38,7 @@ const questions = [
     ],
   },
   {
-    text: "5) How many elements can a valid react component return?",
+    text: " How many elements can a valid react component return?",
     options: [
       { id: 0, text: "1", isCorrect: true },
       { id: 1, text: "2", isCorrect:  false },

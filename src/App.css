@@ -1,114 +1,164 @@
+/* Reset styles for all elements */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Arial', sans-serif;
-    color: #ffffff;
-    transition: background-color 0.5s, color 0.5s;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+  font-family: 'Courier New', Courier, monospace;
+  font-style: italic;
+  transition: background-color 0.5s, color 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: aliceblue;
+}
+
+/* Dark mode styles */
+.body.darkMode {
+  background-color: #333;
+  color: #6be9ff;
+}
+
+/* Light mode styles */
+.body.lightMode {
+  color: #333;
+  background-color: #6be9ff;
+}
+
+/* Header styles */
+.header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+/* Title styles */
+h1.title {
+  font-size: 24px;
+}
+
+/* Mode button styles */
+.modeButton {
+  padding: 7px;
+  border: 1.7px solid;
+  cursor: pointer;
+  font-size: 10px;
+  border-radius: 65px;
+  transition: background-color 0.2s, color 0.2s;
+  color: #080808;
+}
+
+.modeButton:hover {
+  scale: 1.1;
+}
+
+/* Question box styles */
+.questionBox {
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Question number and text styles */
+.question-number,
+.question-text {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Option styles */
+.option {
+  padding: 5px;
+  margin: 10px 0;
+  border: 1px solid #1a1a1a;
+  cursor: pointer;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.option:hover {
+  background-color: #dcdcdc;
+  border-color: #7bb9ff;
+  transform: scale(1.01);
+}
+
+/* Highlight box styles */
+.hlbox {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+/* Highlight button, remove highlight button, and restart button styles */
+.highlight-btn,
+.remove-highlight-btn,
+.restart {
+  padding: 12px;
+  cursor: pointer;
+  outline: none;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+  margin: 10px 0;
+}
+
+.highlight-btn:hover,
+.remove-highlight-btn:hover,
+.restart:hover {
+  text-decoration: underline;
+}
+
+/* Highlight button and remove highlight button styles */
+.highlight-btn,
+.remove-highlight-btn {
+  border: 1px solid #61dafb;
+}
+
+/* Highlight button hover style */
+.highlight-btn:hover {
+  background-color: #33ff00;
+}
+
+/* Remove highlight button hover style */
+.remove-highlight-btn:hover {
+  background-color: #e74c3c;
+}
+
+/* Restart button styles */
+.restart {
+  border: 1px solid grey;
+}
+
+/* Restart button hover style */
+.restart:hover {
+  background-color: #45a049;
+}
+
+/* Highlighted and not-highlighted text styles */
+.highlighted {
+  color: white;
+  text-decoration-line: underline;
+}
+
+.not-highlighted {
+  color: inherit;
+}
+
+/* Media Query for screens smaller than 600px */
+@media screen and (max-width: 600px) {
   .header {
-    background-color: #2d4059;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid #1a2632;
+    flex-direction: column;
   }
-  
-  h1 {
-    font-size: 24px;
-  }
-  
+
   .modeButton {
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    outline: none;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .modeButton:hover {
-    background-color: #1a2632;
-  }
-  
-  .light {
-    background-color: #f4f4f4;
-  }
-  
-  .dark {
-    background-color: #333333;
-  }
-  
-  .questionBox {
-    margin: 20px;
-  }
-  
-  h1, h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .option {
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #2d4059;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s, transform 0.3s;
-    border-radius: 5px;
-  }
-  
-  .option:hover {
-    background-color: #1a2632;
-    color: #ffffff;
-    border-color: #ffffff;
-    transform: scale(1.0005);
-  }
-  
-  .hlbox {
-    display: flex;
-    justify-content: space-between;
     margin-top: 20px;
   }
-  
-  .highlight, .removehighlight {
-    padding: 10px;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .highlight:hover {
-    background-color: #00b894;
-  }
-  
-  .removehighlight:hover {
-    background-color: #e74c3c;
-  }
-  
-  .removehighlight {
-    background-color: #333333;
-  }
-  
-  .restart {
-    padding: 10px;
-    cursor: pointer;
-    background-color: #00b894;
-    color: #ffffff;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .restart:hover {
-    background-color: #008d70;
-  }
-  
+}

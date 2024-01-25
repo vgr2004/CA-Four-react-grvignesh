@@ -1,65 +1,61 @@
-import React, { useState ,useEffect , createContext} from 'react'
-import questions from '../questions'
-import Result from './Result'
+import React, { useState, useEffect, createContext } from 'react';
+import questions from '../questions';
+import Result from './Result';
 
-export const marks=createContext()
+export const marks = createContext();
 
 export default function QuestionBox() {
-  let [questionNo,setquestionNo]=useState(1)
-  let [count,setcount]=useState(1)
-  let [score,setscore]=useState(0)
-  let white='#ffffff'
-  let [highlight,sethighlight]=useState('white')
-  
-  function counts(item){
-    setcount(count+1)
-    setquestionNo(questionNo+1)
-    if(item.isCorrect==true){  
-      setscore(score+1)
+  const [questionNo, setQuestionNo] = useState(1);
+  let [count, setCount] = useState(1);
+  const [score, setScore] = useState(0);
+  const [highlight, setHighlight] = useState('not-highlighted');
+
+   count = (item) => {
+    setCount((prevCount) => prevCount + 1);
+    setQuestionNo((prevQuestionNo) => prevQuestionNo + 1);
+    if (item.isCorrect === true) {
+      setScore((prevScore) => prevScore + 1);
       console.log(questionNo);
     }
-  }
-  
-  function removehighlight(){
-    sethighlight(white)
-    
-  }
+  };
 
-  function highlights(){
-    let green="#00FF00"
-    sethighlight(green)
-  }
+  const removeHighlight = () => {
+    setHighlight('not-highlighted');
+  };
+
+  const highlights = () => {
+    setHighlight('highlighted');
+  };
 
   useEffect(() => {
     console.log(questionNo);
   }, [questionNo]);
 
-
   return (
-      <>
-      {questionNo!=6?
-      <>
-      <h1>Question : {questionNo} / 5</h1>
-        <h2 style={{color: highlight}}>{questions[questionNo-1].text}</h2>
-        <div>
-          {questions[questionNo-1].options.map((item)=>{
-            return(<div className='option' key={item.id} onClick={()=>counts(item)}>{item.text}</div>)
-          })}
-        </div>
-        <div className='hlbox'>
-          <button onClick={highlights} className='highlight'>Highlight</button>
-          <button onClick={removehighlight} className='removehighlight'>Remove highlight</button>
-        </div>
+    <>
+      {questionNo !== 6 ? (
+        <>
+          <h1 className="question-number">Question : {questionNo} / 5</h1>
+          <h2 className={`question-text ${highlight}`}>{questions[questionNo - 1].text}</h2>
+          <div className='options-container'>
+            {questions[questionNo - 1].options.map((item) => (
+              <div className='option' key={item.id} onClick={() => count(item)}>
+                {item.text}
+              </div>
+            ))}
+          </div>
+          <div className='highlight-box'>
+            <button onClick={highlights} className='highlight-btn'>Highlight</button>
+            <button onClick={removeHighlight} className='remove-highlight-btn'>Remove highlight</button>
+          </div>
         </>
-        :
-          <>
+      ) : (
+        <>
           <marks.Provider value={score}>
-          <Result/>
-        </marks.Provider>
-          </>
-        }
-        
-        
-      </>
-  )
+            <Result />
+          </marks.Provider>
+        </>
+      )}
+    </>
+  );
 }
